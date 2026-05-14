@@ -37,7 +37,8 @@ def main():
             if row['ID_Youtube']:
                 sessions_dict[buoi_num]["videos"].append({
                     "name": row['Ten_Phan'],
-                    "id": row['ID_Youtube']
+                    "id": row['ID_Youtube'],
+                    "desc": row.get('Mo_Ta', '')
                 })
 
     # Chuyển thành danh sách và đảm bảo đủ 15 buổi

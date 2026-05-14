@@ -1,17 +1,14 @@
-﻿<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Video Cáº¥p Tá»‘c ToÃ¡n 12 | ToÃ¡n CÃ¡ ChÃ©p</title>
-  
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <script>
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Scientific Learning Platform</title>
+<!-- Tailwind CSS Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Montserrat (Headings) & Open Sans (Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -31,9 +28,8 @@
       }
     }
   </script>
-
-  <style>
-    :root {
+<!-- Custom Styles: Theming, Logic Classes, and Animations -->
+<style data-purpose="theme-styles">    :root {
       --color-primary: #0040BE;
       --color-accent: #00f2fe;
       --color-neon-yellow: #f7c800;
@@ -53,7 +49,7 @@
     /* Starry background effect */
     body::before {
       content: '';
-      position: fixed;
+      position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image: 
         radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
@@ -67,7 +63,6 @@
       opacity: 0.3;
       z-index: -1;
       animation: twinkle 4s infinite alternate;
-      pointer-events: none;
     }
 
     @keyframes twinkle {
@@ -99,7 +94,6 @@
         position: absolute;
         top: 0; left: 0; right: 0; height: 4px;
         background: #f7c800;
-        z-index: 10;
     }
 
     .toy-button {
@@ -149,8 +143,8 @@
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background-color: var(--color-accent);
-    }
-
+    }</style>
+<style data-purpose="learning-logic-styles">
     /* Required Logic Classes for Playlist */
     .session {
       margin-bottom: 1.5rem;
@@ -167,32 +161,6 @@
       position: relative;
       z-index: 10;
       text-shadow: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .session-title:hover {
-      background: #ffdb33;
-    }
-
-    .session-items {
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-    .session.closed .session-items {
-      display: none;
-    }
-    .session.closed .session-title .toggle-icon {
-      transform: rotate(-90deg);
-    }
-    .session.empty {
-      opacity: 0.3; /* Má» Ä‘i khi trá»‘ng */
-      transition: opacity 0.3s ease;
-    }
-    .session.empty:hover {
-      opacity: 1;
     }
 
     .vitem {
@@ -204,7 +172,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 0.75rem;
       margin-bottom: 0.75rem;
-      margin-right: 0.5rem; /* Thu gá»n láº¡i Ä‘á»ƒ khÃ´ng máº¥t viá»n pháº£i */
+      margin-right: 0.5rem; /* Thu gọn lại để không mất viền phải */
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
@@ -238,11 +206,11 @@
       background-color: rgba(0, 8, 36, 0.5);
       opacity: 0.8;
       border-style: solid;
-      border-color: #00f2fe; /* nÃ©t liá»n xanh dÆ°Æ¡ng neon */
+      border-color: #00f2fe; /* nét liền xanh dương neon */
     }
 
     .vitem.watched .vitem-title {
-      color: rgba(255,255,255,0.7); /* Bá» gáº¡ch ngang */
+      color: rgba(255,255,255,0.7); /* Bỏ gạch ngang */
     }
 
     .vitem.watched .status-indicator {
@@ -251,7 +219,7 @@
     }
     
     .vitem.watched .status-indicator::after {
-      content: "âœ“";
+      content: "✓";
       color: #000824;
       font-weight: bold;
       font-size: 0.8rem;
@@ -277,381 +245,136 @@
     }
     
     .vitem.playing .status-indicator::after {
-      content: "â–¶";
+      content: "▶";
       color: #000824;
       font-size: 0.7rem;
       margin-left: 2px;
     }
-    
-    /* Inline player for mobile */
-    .inline-player {
-      width: 100%;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      background: #000;
-      border: 1px solid var(--color-accent);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-    }
-    .inline-player iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
   </style>
-</head>
+<style data-stitch-cursor="">#video-container.toy-card::before { background: #f7c800 !important; }</style><style data-stitch-scroll-lock="">#video-container.toy-card::before { background: #f7c800 !important; }</style><style data-stitch-cursor="">#video-container.toy-card::before { background: #f7c800 !important; }</style><style data-stitch-scroll-lock="">#video-container.toy-card::before { background: #f7c800 !important; }</style><style class="">#video-container.toy-card::before { background: #f7c800 !important; }</style><style data-stitch-cursor="">*{cursor:crosshair!important}[contenteditable="true"]:focus,.cursor-text:focus{cursor:text!important}</style><style data-stitch-scroll-lock="">html,body{overflow:hidden!important}</style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
 <body class="font-body min-h-screen flex flex-col">
-  <!-- BEGIN: Topbar -->
-  <header class="glass-panel fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center" data-purpose="main-header">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-full flex items-center justify-center font-heading font-black text-xl text-white shadow-[0_0_15px_rgba(255,8,68,0.5)]" style="background-color: #0040be;">
-        <img src="./logo_captoc_96x96.png" alt="Logo" class="w-full h-full object-contain p-1">
-      </div>
-      <h1 class="font-heading font-black text-2xl hidden md:block tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-accentcyan to-accentpurple">Cáº¤P Tá»C 26</h1>
-    </div>
-    <div class="flex gap-4">
-      <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 font-heading font-bold text-sm shadow-lg flex items-center gap-2">
-        <span class="text-accentmagenta text-lg">ðŸš€</span><span class="text-white" id="ts-watched-text">HoÃ n thÃ nh: 0%</span>
-      </div>
-    </div>
-  </header>
-  <!-- END: Topbar -->
+<!-- BEGIN: Topbar -->
+<header class="glass-panel fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center" data-purpose="main-header">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-heading font-black text-xl text-white shadow-[0_0_15px_rgba(255,8,68,0.5)]" style="background-color: #0040be;"><img src="./logo_captoc_96x96.png" alt="Logo" class="w-full h-full object-contain p-1"></div>
+<h1 class="font-heading font-black text-2xl hidden md:block tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-accentcyan to-accentpurple">CẤP TỐC 26</h1>
+</div>
+<!-- User Stats Glassmorphism -->
+<div class="flex gap-4">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 font-heading font-bold text-sm shadow-lg flex items-center gap-2">
+<span class="text-accentmagenta text-lg">🚀</span><span class="text-white">Buổi học: 1/15</span>
+</div>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: Main Content Layout -->
+<main class="flex-grow pt-24 pb-12 px-4 md:px-8 max-w-[1600px] mx-auto w-full flex flex-col lg:flex-row gap-8">
+<!-- BEGIN: Player Column (68%) -->
+<section class="w-full lg:w-[68%] flex flex-col gap-6" data-purpose="player-column">
+<!-- Sticky wrapper for desktop -->
+<div class="lg:sticky lg:top-28 flex flex-col gap-6">
+<!-- Video Player Container -->
+<div class="toy-card w-full aspect-video bg-black relative flex items-center justify-center group shadow-[0_0_30px_rgba(0,64,190,0.3)]" id="video-container">
+<!-- Placeholder Video Area -->
+<img alt="Video Player" class="w-full h-full object-cover opacity-70 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqPRBh0iFPCIbrGUuRZnUIFAOXNkVseqIg4w-CNP4rbViI6PI-4Wol70YJcbsiXzXgDL6WoiP06EEwbvhWKh-KmEi_Im59Trcxfov4Zboei3zpjFdcTZ17kLuY2HO5HRO1AEXeWbhjSFWkr_bbSIKhvvBxLbPpEywFnpTXc8Z4jAJ7SO7iBGHbcaJBtuHKfPIggt-DKhiGMdN4qyJRwP7WhCyg5-mkxW9FdVFrJD5g7GZ4Hm2GisYym21XtPur3gHJ3fKOokqIoDL">
+<!-- Play Overlay Button -->
+<button class="absolute inset-0 m-auto w-20 h-20 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,8,68,0.6)] hover:scale-110 transition-transform z-10" style="background-color: rgb(247, 200, 0); box-shadow: rgba(247, 200, 0, 0.6) 0px 0px 20px;">
+<svg class="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+</button>
+<!-- Faux Video Controls -->
+<div class="absolute bottom-0 left-0 w-full bg-spacepanel/90 p-4 border-t border-white/10 flex items-center gap-4 text-white font-heading font-bold text-sm backdrop-blur-md">
+<button class="hover:text-accentcyan transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+<div class="flex-grow h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-accentlime w-1/3 shadow-[0_0_10px_#a8ff78]"></div>
+</div>
+<span class="text-accentcyan">02:34 / 10:00</span>
+</div>
+</div>
+<!-- Video Info -->
+<div class="toy-card p-6 md:p-8 flex flex-col gap-4" style="border: none; box-shadow: none;">
+<div class="flex justify-between items-start flex-wrap gap-4">
+<div>
+<span class="inline-block bg-accentpurple/20 text-accentcyan font-heading font-bold px-3 py-1 rounded-full border border-accentpurple mb-3 text-xs tracking-wider uppercase">Buổi 1</span>
+<h2 class="font-heading font-black text-3xl md:text-4xl text-white" id="video-title">Đề khảo sát chất lượng Sở Hà Nội</h2>
+</div>
+<button class="toy-button px-8 py-3 text-sm md:text-base flex items-center gap-2">Đã xem xong<br><span class="text-lg">✓</span>
+</button>
+</div>
+<p class="font-body text-lg font-normal leading-relaxed text-gray-300 mt-2">Điểm trung bình trong bài khảo sát trên của gần 120.000 học sinh lớp 12 ở Hà Nội là 4,75, hơn 40% "kẹt ở mốc 3-5". Tất nhiên đó là điểm của các bạn vào 2 tháng trước, hiện tại chắc chắc đã cải thiện. Do đó các bạn cần cố gắng hơn nữa nhé</p>
+</div>
+</div>
+</section>
+<!-- END: Player Column -->
+<!-- BEGIN: Playlist Column (32%) -->
+<aside class="w-full lg:w-[32%] flex flex-col" data-purpose="playlist-column">
+<div class="toy-card flex-grow flex flex-col max-h-[calc(100vh-8rem)]">
+<!-- Playlist Header -->
+<div class="p-6 border-b border-white/10 bg-spacepanel flex items-center justify-between z-10">
+<h3 class="font-heading font-black text-xl text-white">Danh Sách Video&nbsp;</h3>
+<span class="bg-accentcyan/20 text-accentcyan font-heading font-bold px-4 py-1 rounded-full text-sm border border-accentcyan/30">30 Videos</span>
+</div>
+<!-- Scrollable Sessions Container -->
+<div class="p-4 overflow-y-auto custom-scrollbar flex-grow bg-spacebg/50" id="playlist-container">
+<!-- Session 1 -->
+<div class="session" id="session-1">
+<h4 class="session-title">🚀 Buổi 1 - KSCT Sở Hà Nội - Lần 1</h4>
+<div class="session-items flex flex-col pl-2 border-l-2 border-accentpurple/30 ml-4 mt-3">
+<!-- Video Item 1 (Watched) -->
+<div class="vitem watched" data-id="v-101">
+<div class="status-indicator"></div>
+<div class="flex flex-col">
+<span class="vitem-title font-body font-semibold text-base text-white">Phần 1</span>
+<span class="text-xs font-bold text-accentlime">01:30</span>
+</div>
+</div>
+<!-- Video Item 2 (Playing) -->
+<div class="vitem playing" data-id="v-102">
+<div class="status-indicator"></div>
+<div class="flex flex-col">
+<span class="vitem-title font-body font-bold text-base">Phần 2</span>
+<span class="text-xs font-bold text-accentcyan">10:00 • Currently Playing</span>
+</div>
+</div>
+<!-- Video Item 3 (Upcoming) -->
+<div class="vitem" data-id="v-103">
+<div class="status-indicator"></div>
+<div class="flex flex-col">
+<span class="vitem-title font-body font-semibold text-base text-gray-200">Phần 3</span>
+<span class="text-xs font-bold text-gray-400">08:20</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Session 2 -->
+<div class="session" id="session-2">
+<h4 class="session-title">👽 Buổi 2 - Đang nhập nhật</h4>
+<div class="session-items flex flex-col pl-2 border-l-2 border-accentpurple/30 ml-4 mt-3">
+<!-- Video Item 4 -->
+<div class="vitem" data-id="v-201">
+<div class="status-indicator"></div>
+<div class="flex flex-col">
+<span class="vitem-title font-body font-semibold text-base text-gray-200">Phần 1</span>
+<span class="text-xs font-bold text-gray-400">00:00</span>
+</div>
+</div>
+<!-- Video Item 5 -->
+<div class="vitem" data-id="v-202">
+<div class="status-indicator"></div>
+<div class="flex flex-col">
+<span class="vitem-title font-body font-semibold text-base text-gray-200">Phần 2</span>
+<span class="text-xs font-bold text-gray-400"><span style="background-color: rgba(255, 255, 255, 0.05);" class="">00:00</span></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- END: Playlist Column -->
+</main>
+<!-- END: Main Content Layout -->
 
-  <!-- BEGIN: Main Content Layout -->
-  <main class="flex-grow pt-28 pb-12 px-4 md:px-8 max-w-[1600px] mx-auto w-full flex flex-col lg:flex-row gap-8">
-    
-    <!-- BEGIN: Player Column (68%) -->
-    <section class="w-full lg:w-[68%] flex flex-col gap-6" data-purpose="player-column">
-      <div class="lg:sticky lg:top-28 flex flex-col gap-6">
-        
-        <!-- Video Player Container -->
-        <div class="toy-card w-full aspect-video bg-black relative flex items-center justify-center group shadow-[0_0_30px_rgba(0,64,190,0.3)] hidden lg:flex" id="video-container">
-          <!-- Placeholder Video Area -->
-          <div id="vid-placeholder" class="w-full h-full flex flex-col items-center justify-center absolute inset-0 z-10">
-            <img alt="Video Player" class="w-full h-full object-cover opacity-70 mix-blend-screen absolute inset-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqPRBh0iFPCIbrGUuRZnUIFAOXNkVseqIg4w-CNP4rbViI6PI-4Wol70YJcbsiXzXgDL6WoiP06EEwbvhWKh-KmEi_Im59Trcxfov4Zboei3zpjFdcTZ17kLuY2HO5HRO1AEXeWbhjSFWkr_bbSIKhvvBxLbPpEywFnpTXc8Z4jAJ7SO7iBGHbcaJBtuHKfPIggt-DKhiGMdN4qyJRwP7WhCyg5-mkxW9FdVFrJD5g7GZ4Hm2GisYym21XtPur3gHJ3fKOokqIoDL">
-            <button class="absolute m-auto w-20 h-20 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,8,68,0.6)] transition-transform z-20 pointer-events-none" style="background-color: rgb(247, 200, 0); box-shadow: rgba(247, 200, 0, 0.6) 0px 0px 20px;">
-              <svg class="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="absolute bottom-4 text-white font-heading font-bold text-sm backdrop-blur-md bg-spacepanel/80 px-4 py-2 rounded-full z-20 border border-white/20">
-              Chá»n video tá»« danh sÃ¡ch Ä‘á»ƒ há»c
-            </div>
-          </div>
-          <div id="yt-player" class="absolute inset-0 z-20" style="display:none"></div>
-        </div>
-        
-        <!-- Video Info -->
-        <div class="toy-card p-6 md:p-8 flex flex-col gap-4 hidden lg:flex" id="video-info-card" style="border: none; box-shadow: none;">
-          <div class="flex justify-between items-start flex-wrap gap-4">
-            <div>
-              <span class="inline-block bg-accentpurple/20 text-accentcyan font-heading font-bold px-3 py-1 rounded-full border border-accentpurple mb-3 text-xs tracking-wider uppercase" id="np-session">CHÆ¯A CHá»ŒN BÃ€I</span>
-              <h2 class="font-heading font-black text-3xl md:text-4xl text-white" id="np-title">Chá»n video tá»« danh sÃ¡ch â†’</h2>
-            </div>
-            <button class="toy-button px-8 py-3 text-sm md:text-base flex items-center gap-2" onclick="toggleAutoNext()" id="btn-autonext">Tá»± Ä‘á»™ng chuyá»ƒn bÃ i<br><span class="text-lg">â–¶</span>
-            </button>
-          </div>
-          <p class="font-body text-base font-normal leading-relaxed text-gray-300 mt-2" id="np-desc">HÃ£y chá»n má»™t bÃ i há»c tá»« danh sÃ¡ch bÃªn pháº£i Ä‘á»ƒ báº¯t Ä‘áº§u.</p>
-        </div>
-      </div>
-    </section>
-    <!-- END: Player Column -->
 
-    <!-- BEGIN: Playlist Column (32%) -->
-    <aside class="w-full lg:w-[32%] flex flex-col" data-purpose="playlist-column">
-      <div class="toy-card flex-grow flex flex-col lg:max-h-[calc(100vh-8rem)] min-h-[500px]">
-        <!-- Playlist Header -->
-        <div class="p-6 border-b border-white/10 bg-spacepanel flex items-center justify-between z-10">
-          <h3 class="font-heading font-black text-xl text-white">Danh SÃ¡ch Video</h3>
-          <span class="bg-accentcyan/20 text-accentcyan font-heading font-bold px-4 py-1 rounded-full text-sm border border-accentcyan/30" id="ts-video-count">... Videos</span>
-        </div>
-        <!-- Scrollable Sessions Container -->
-        <div class="p-4 overflow-y-auto custom-scrollbar flex-grow bg-spacebg/50" id="playlist-container">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </aside>
-    <!-- END: Playlist Column -->
-    
-  </main>
-  <!-- END: Main Content Layout -->
 
-<script>
-  // â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  const SESSIONS = [
-    {
-        "num": "01",
-        "title": "KSCT Hà Nội - L1",
-        "videos": [
-            {
-                "name": "Phần 1",
-                "id": "ITQ1eSigvyw"
-            }
-        ]
-    },
-    {
-        "num": "02",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "03",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "04",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "05",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "06",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "07",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "08",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "09",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "10",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "11",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "12",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "13",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "14",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "15",
-        "title": "",
-        "videos": []
-    }
-];
 
-  // â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  let watched    = JSON.parse(localStorage.getItem('tc-ct-watched') || '{}');
-  let autoNext   = false;
-  let activeItem = null;
-  let currentVideoId = null;
-  let inlinePlayer   = null;
-  let ytPlayer, ytReady = false;
-  const playQueue = [];
-
-  // â”€â”€ YOUTUBE API â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function onYouTubeIframeAPIReady() {
-    ytPlayer = new YT.Player('yt-player', {
-      height:'100%', width:'100%',
-      playerVars:{ rel:0, modestbranding:1, autoplay:1 },
-      events:{
-        onReady() { ytReady = true; },
-        onStateChange(e) {
-          if (e.data === YT.PlayerState.ENDED) {
-            if (activeItem) markWatched(currentVideoId, activeItem);
-            if (autoNext) playNext();
-          }
-          if (e.data === YT.PlayerState.PLAYING && activeItem) {
-            markWatched(currentVideoId, activeItem);
-          }
-        }
-      }
-    });
-  }
-
-  function embedUrl(id) {
-    return 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1&autoplay=1';
-  }
-
-  // â”€â”€ PLAY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function playVideo(id, name, sessionLabel, el) {
-    closeInline(false);
-    if (activeItem) activeItem.classList.remove('playing');
-    el.classList.add('playing');
-    activeItem = el; currentVideoId = id;
-
-    if (window.innerWidth >= 1024) { // lg breakpoint in tailwind
-      document.getElementById('vid-placeholder').style.display = 'none';
-      const ypEl = document.getElementById('yt-player');
-      ypEl.style.display = 'block';
-      if (ytReady && ytPlayer && ytPlayer.loadVideoById) {
-        ytPlayer.loadVideoById(id);
-      } else {
-        ypEl.innerHTML = `<iframe src="${embedUrl(id)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>`;
-      }
-      document.getElementById('np-session').textContent = sessionLabel;
-      document.getElementById('np-title').textContent = name;
-      document.getElementById('np-desc').textContent = "ChÃºc báº¡n há»c táº­p hiá»‡u quáº£!";
-    } else {
-      markWatched(id, el);
-      const div = document.createElement('div');
-      div.className = 'inline-player';
-      div.innerHTML = `<iframe src="${embedUrl(id)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen frameborder="0"></iframe>`;
-      el.after(div);
-      inlinePlayer = div;
-      setTimeout(() => div.scrollIntoView({ behavior:'smooth', block:'center' }), 100);
-    }
-  }
-
-  function playNext() {
-    const idx = playQueue.findIndex(v => v.id === currentVideoId);
-    if (idx >= 0 && idx < playQueue.length - 1) {
-      const next = playQueue[idx + 1];
-      const sessEl = next.el.closest('.session');
-      if (sessEl && sessEl.classList.contains('closed')) toggleSession(sessEl.querySelector('.session-title'));
-      next.el.scrollIntoView({ behavior:'smooth', block:'nearest' });
-      playVideo(next.id, next.name, next.session, next.el);
-    }
-  }
-
-  function closeInline(clearActive = true) {
-    if (inlinePlayer) { inlinePlayer.remove(); inlinePlayer = null; }
-    if (clearActive && activeItem) {
-      activeItem.classList.remove('playing');
-      activeItem = null;
-    }
-  }
-
-  // â”€â”€ PROGRESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function markWatched(id, el) {
-    if (!id || watched[id]) return;
-    watched[id] = true;
-    localStorage.setItem('tc-ct-watched', JSON.stringify(watched));
-    if (el) {
-      el.classList.add('watched');
-    }
-    updateStats();
-  }
-
-  function applyWatchedState() {
-    Object.keys(watched).forEach(id => {
-      document.querySelectorAll(`[data-vid="${id}"]`).forEach(el => {
-        el.classList.add('watched');
-      });
-    });
-  }
-
-  function updateStats() {
-    const total = playQueue.length;
-    const done  = Object.keys(watched).length;
-    const pct   = total > 0 ? Math.round(done / total * 100) : 0;
-    const el    = document.getElementById('ts-watched-text');
-    if (el) el.textContent = `HoÃ n thÃ nh: ${pct}%`;
-  }
-
-  function toggleAutoNext() {
-    autoNext = !autoNext;
-    const btn = document.getElementById('btn-autonext');
-    if (autoNext) {
-        btn.style.background = 'linear-gradient(135deg, #a8ff78, #00f2fe)';
-        btn.innerHTML = 'Tá»± Ä‘á»™ng: Báº¬T <span class="text-lg">âœ“</span>';
-    } else {
-        btn.style.background = 'linear-gradient(135deg, #00f2fe, #4facfe)';
-        btn.innerHTML = 'Tá»± Ä‘á»™ng: Táº®T <span class="text-lg">â–¶</span>';
-    }
-  }
-
-  // â”€â”€ BUILD SESSIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function toggleSession(titleEl) {
-    const sessionEl = titleEl.closest('.session');
-    sessionEl.classList.toggle('closed');
-  }
-
-  function buildSessions() {
-    const container = document.getElementById('playlist-container');
-    let totalV = 0;
-    let html = '';
-
-    SESSIONS.forEach((s, si) => {
-      const hasVideos = s.videos.length > 0;
-      const sessionLabel = s.title ? `Buá»•i ${s.num} - ${s.title}` : `Buá»•i ${s.num} - Äang cáº­p nháº­t`;
-      const icon = hasVideos ? "ðŸš€" : "ðŸ‘½";
-      
-      let vitems = '';
-      s.videos.forEach((v, vi) => {
-        const sessionLabelFull = `Buá»•i ${s.num}${s.title ? ' - ' + s.title : ''}`;
-        playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null });
-        totalV++;
-        
-        vitems += `
-          <div class="vitem" data-vid="${v.id}" onclick="playVideo('${v.id}','${v.name.replace(/'/g,"\\'")}', '${sessionLabelFull.replace(/'/g,"\\'")}', this)">
-            <div class="status-indicator"></div>
-            <div class="flex flex-col">
-              <span class="vitem-title font-body font-semibold text-base text-gray-200">${v.name}</span>
-            </div>
-          </div>`;
-      });
-
-      if (!hasVideos) {
-        vitems = `
-          <div class="vitem opacity-50 cursor-not-allowed">
-            <div class="status-indicator"></div>
-            <div class="flex flex-col">
-              <span class="vitem-title font-body font-semibold text-base text-gray-400">Sáº¯p cÃ³</span>
-            </div>
-          </div>`;
-      }
-
-      html += `
-        <div class="session ${hasVideos ? '' : 'closed empty'}" id="session-${s.num}">
-          <h4 class="session-title" onclick="toggleSession(this)">
-            <span>${icon} ${sessionLabel}</span>
-            <svg class="w-5 h-5 toggle-icon transition-transform ${hasVideos ? '' : '-rotate-90'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </h4>
-          <div class="session-items flex flex-col pl-2 border-l-2 border-accentpurple/30 ml-4 mt-3">
-            ${vitems}
-          </div>
-        </div>`;
-    });
-
-    container.innerHTML = html;
-
-    // Backfill el references
-    container.querySelectorAll('.vitem[data-vid]').forEach(el => {
-      const vid = el.dataset.vid;
-      const q = playQueue.find(v => v.id === vid && !v.el);
-      if (q) q.el = el;
-    });
-
-    document.getElementById('ts-video-count').textContent = `${totalV} Videos`;
-    updateStats();
-    applyWatchedState();
-  }
-
-  buildSessions();
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024 && inlinePlayer) closeInline(true);
-  });
-</script>
-</body>
-</html>
+</body></html>
