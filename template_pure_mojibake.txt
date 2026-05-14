@@ -1,9 +1,9 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Video Cấp Tốc Toán 12 | Toán Cá Chép</title>
+  <title>Video Cáº¥p Tá»‘c ToÃ¡n 12 | ToÃ¡n CÃ¡ ChÃ©p</title>
   
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -188,13 +188,6 @@
       transform: rotate(-90deg);
     }
     .session.empty {
-      opacity: 0.3;
-      transition: opacity 0.3s ease;
-    }
-    .session.empty:hover {
-      opacity: 1;
-    }
-    .session.empty {
       opacity: 0.3; /* Má» Ä‘i khi trá»‘ng */
       transition: opacity 0.3s ease;
     }
@@ -318,7 +311,7 @@
     </div>
     <div class="flex gap-4">
       <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 font-heading font-bold text-sm shadow-lg flex items-center gap-2">
-        <span class="text-accentmagenta text-lg">🚀</span><span class="text-white" id="ts-watched-text">Hoàn thành: 0%</span>
+        <span class="text-accentmagenta text-lg">ðŸš€</span><span class="text-white" id="ts-watched-text">HoÃ n thÃ nh: 0%</span>
       </div>
     </div>
   </header>
@@ -340,7 +333,7 @@
               <svg class="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
             </button>
             <div class="absolute bottom-4 text-white font-heading font-bold text-sm backdrop-blur-md bg-spacepanel/80 px-4 py-2 rounded-full z-20 border border-white/20">
-              Chá»n video tá»« danh sÃ¡ch Ä‘á»ƒ học
+              Chá»n video tá»« danh sÃ¡ch Ä‘á»ƒ há»c
             </div>
           </div>
           <div id="yt-player" class="absolute inset-0 z-20" style="display:none"></div>
@@ -356,7 +349,7 @@
             <button class="toy-button px-8 py-3 text-sm md:text-base flex items-center gap-2" onclick="toggleAutoNext()" id="btn-autonext">Tá»± Ä‘á»™ng chuyá»ƒn bÃ i<br><span class="text-lg">â–¶</span>
             </button>
           </div>
-          <p class="font-body text-base font-normal leading-relaxed text-gray-300 mt-2" id="np-desc">HÃ£y chá»n má»™t bÃ i học tá»« danh sÃ¡ch bÃªn pháº£i Ä‘á»ƒ báº¯t Ä‘áº§u.</p>
+          <p class="font-body text-base font-normal leading-relaxed text-gray-300 mt-2" id="np-desc">HÃ£y chá»n má»™t bÃ i há»c tá»« danh sÃ¡ch bÃªn pháº£i Ä‘á»ƒ báº¯t Ä‘áº§u.</p>
         </div>
       </div>
     </section>
@@ -383,89 +376,7 @@
 
 <script>
   // â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  const SESSIONS = [
-    {
-        "num": "01",
-        "title": "KSCT Hà Nội - L1",
-        "videos": [
-            {
-                "name": "Phần 1",
-                "id": "ITQ1eSigvyw",
-                "desc": "Chúc bạn học tập hiệu quả!"
-            }
-        ]
-    },
-    {
-        "num": "02",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "03",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "04",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "05",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "06",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "07",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "08",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "09",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "10",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "11",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "12",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "13",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "14",
-        "title": "",
-        "videos": []
-    },
-    {
-        "num": "15",
-        "title": "",
-        "videos": []
-    }
-];
+  const SESSIONS = %INJECT_DATA%;
 
   // â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   let watched    = JSON.parse(localStorage.getItem('tc-ct-watched') || '{}');
@@ -501,7 +412,7 @@
   }
 
   // â”€â”€ PLAY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function playVideo(id, name, sessionLabel, desc, el) {
+  function playVideo(id, name, sessionLabel, el) {
     closeInline(false);
     if (activeItem) activeItem.classList.remove('playing');
     el.classList.add('playing');
@@ -518,7 +429,7 @@
       }
       document.getElementById('np-session').textContent = sessionLabel;
       document.getElementById('np-title').textContent = name;
-      document.getElementById('np-desc').textContent = desc || "Chúc bạn học tập hiệu quả!";
+      document.getElementById('np-desc').textContent = "ChÃºc báº¡n há»c táº­p hiá»‡u quáº£!";
     } else {
       markWatched(id, el);
       const div = document.createElement('div');
@@ -537,7 +448,7 @@
       const sessEl = next.el.closest('.session');
       if (sessEl && sessEl.classList.contains('closed')) toggleSession(sessEl.querySelector('.session-title'));
       next.el.scrollIntoView({ behavior:'smooth', block:'nearest' });
-      playVideo(next.id, next.name, next.session, next.desc, next.el);
+      playVideo(next.id, next.name, next.session, next.el);
     }
   }
 
@@ -573,7 +484,7 @@
     const done  = Object.keys(watched).length;
     const pct   = total > 0 ? Math.round(done / total * 100) : 0;
     const el    = document.getElementById('ts-watched-text');
-    if (el) el.textContent = `Hoàn thành: ${pct}%`;
+    if (el) el.textContent = `HoÃ n thÃ nh: ${pct}%`;
   }
 
   function toggleAutoNext() {
@@ -601,17 +512,17 @@
 
     SESSIONS.forEach((s, si) => {
       const hasVideos = s.videos.length > 0;
-      const sessionLabel = s.title ? `Buổi ${s.num} - ${s.title}` : `Buổi ${s.num} - Äang cáº­p nháº­t`;
-      const icon = hasVideos ? "🚀" : "👽";
+      const sessionLabel = s.title ? `Buá»•i ${s.num} - ${s.title}` : `Buá»•i ${s.num} - Äang cáº­p nháº­t`;
+      const icon = hasVideos ? "ðŸš€" : "ðŸ‘½";
       
       let vitems = '';
       s.videos.forEach((v, vi) => {
-        const sessionLabelFull = `Buổi ${s.num}${s.title ? ' - ' + s.title : ''}`;
-        playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null, desc: v.desc });
+        const sessionLabelFull = `Buá»•i ${s.num}${s.title ? ' - ' + s.title : ''}`;
+        playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null });
         totalV++;
         
         vitems += `
-          <div class="vitem" data-vid="${v.id}" onclick="playVideo('${v.id}','${v.name.replace(/'/g,"\\'")}', '${sessionLabelFull.replace(/'/g,"\\'")}', '${(v.desc || "").replace(/'/g,"\\'")}', this)">
+          <div class="vitem" data-vid="${v.id}" onclick="playVideo('${v.id}','${v.name.replace(/'/g,"\\'")}', '${sessionLabelFull.replace(/'/g,"\\'")}', this)">
             <div class="status-indicator"></div>
             <div class="flex flex-col">
               <span class="vitem-title font-body font-semibold text-base text-gray-200">${v.name}</span>
@@ -624,7 +535,7 @@
           <div class="vitem opacity-50 cursor-not-allowed">
             <div class="status-indicator"></div>
             <div class="flex flex-col">
-              <span class="vitem-title font-body font-semibold text-base text-gray-400">Sắp có</span>
+              <span class="vitem-title font-body font-semibold text-base text-gray-400">Sáº¯p cÃ³</span>
             </div>
           </div>`;
       }

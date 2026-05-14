@@ -188,6 +188,13 @@
       transform: rotate(-90deg);
     }
     .session.empty {
+      opacity: 0.3;
+      transition: opacity 0.3s ease;
+    }
+    .session.empty:hover {
+      opacity: 1;
+    }
+    .session.empty {
       opacity: 0.3; /* Má» Ä‘i khi trá»‘ng */
       transition: opacity 0.3s ease;
     }
@@ -311,7 +318,7 @@
     </div>
     <div class="flex gap-4">
       <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 font-heading font-bold text-sm shadow-lg flex items-center gap-2">
-        <span class="text-accentmagenta text-lg">ðŸš€</span><span class="text-white" id="ts-watched-text">HoÃ n thÃ nh: 0%</span>
+        <span class="text-accentmagenta text-lg">🚀</span><span class="text-white" id="ts-watched-text">Hoàn thành: 0%</span>
       </div>
     </div>
   </header>
@@ -412,7 +419,7 @@
   }
 
   // â”€â”€ PLAY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  function playVideo(id, name, sessionLabel, el) {
+  function playVideo(id, name, sessionLabel, desc, el) {
     closeInline(false);
     if (activeItem) activeItem.classList.remove('playing');
     el.classList.add('playing');
@@ -429,7 +436,7 @@
       }
       document.getElementById('np-session').textContent = sessionLabel;
       document.getElementById('np-title').textContent = name;
-      document.getElementById('np-desc').textContent = "ChÃºc bạn học táº­p hiệu quả!";
+      document.getElementById('np-desc').textContent = desc || "Chúc bạn học tập hiệu quả!";
     } else {
       markWatched(id, el);
       const div = document.createElement('div');
@@ -448,7 +455,7 @@
       const sessEl = next.el.closest('.session');
       if (sessEl && sessEl.classList.contains('closed')) toggleSession(sessEl.querySelector('.session-title'));
       next.el.scrollIntoView({ behavior:'smooth', block:'nearest' });
-      playVideo(next.id, next.name, next.session, next.el);
+      playVideo(next.id, next.name, next.session, next.desc, next.el);
     }
   }
 
@@ -484,7 +491,7 @@
     const done  = Object.keys(watched).length;
     const pct   = total > 0 ? Math.round(done / total * 100) : 0;
     const el    = document.getElementById('ts-watched-text');
-    if (el) el.textContent = `HoÃ n thÃ nh: ${pct}%`;
+    if (el) el.textContent = `Hoàn thành: ${pct}%`;
   }
 
   function toggleAutoNext() {
@@ -513,16 +520,16 @@
     SESSIONS.forEach((s, si) => {
       const hasVideos = s.videos.length > 0;
       const sessionLabel = s.title ? `Buổi ${s.num} - ${s.title}` : `Buổi ${s.num} - Äang cáº­p nháº­t`;
-      const icon = hasVideos ? "ðŸš€" : "ðŸ‘½";
+      const icon = hasVideos ? "🚀" : "👽";
       
       let vitems = '';
       s.videos.forEach((v, vi) => {
         const sessionLabelFull = `Buổi ${s.num}${s.title ? ' - ' + s.title : ''}`;
-        playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null });
+        playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null, desc: v.desc });
         totalV++;
         
         vitems += `
-          <div class="vitem" data-vid="${v.id}" onclick="playVideo('${v.id}','${v.name.replace(/'/g,"\\'")}', '${sessionLabelFull.replace(/'/g,"\\'")}', this)">
+          <div class="vitem" data-vid="${v.id}" onclick="playVideo('${v.id}','${v.name.replace(/'/g,"\\'")}', '${sessionLabelFull.replace(/'/g,"\\'")}', '${(v.desc || "").replace(/'/g,"\\'")}', this)">
             <div class="status-indicator"></div>
             <div class="flex flex-col">
               <span class="vitem-title font-body font-semibold text-base text-gray-200">${v.name}</span>
@@ -535,7 +542,7 @@
           <div class="vitem opacity-50 cursor-not-allowed">
             <div class="status-indicator"></div>
             <div class="flex flex-col">
-              <span class="vitem-title font-body font-semibold text-base text-gray-400">Sáº¯p cÃ³</span>
+              <span class="vitem-title font-body font-semibold text-base text-gray-400">Sắp có</span>
             </div>
           </div>`;
       }
