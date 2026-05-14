@@ -65,7 +65,7 @@ def main():
     new_html = html_content.replace('%INJECT_DATA%', json_data)
 
     # Ghi ra index.html
-    with open(output_path, 'w', encoding='utf-8-sig') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(new_html)
 
     print(f"✅ Đã build thành công {output_path.name} từ CSV!")

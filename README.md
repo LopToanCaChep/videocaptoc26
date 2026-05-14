@@ -16,3 +16,17 @@
 - `build_video.py`: Script build (Đọc CSV và nạp vào template).
 - `index.html`: File cuối cùng xuất ra web. **CẢNH BÁO: KHÔNG sửa trực tiếp file này vì mỗi lần chạy build nó sẽ bị ghi đè!**
 - `Sync_Len_Web.bat`: Kịch bản tự động hoá để đẩy lên Github.
+
+## Changelog
+
+### 14/05/2026 — Sửa lỗi encoding & Cải tiến UI
+
+**Sửa lỗi encoding (mojibake):**
+- Khắc phục toàn bộ tiếng Việt bị lỗi hiển thị (mojibake) trong `template.txt` do double-encode UTF-8 → Latin-1 → UTF-8.
+- Sửa `build_video.py`: output encoding `utf-8-sig` → `utf-8` (loại bỏ BOM thừa ở đầu `index.html`).
+
+**3 cải tiến giao diện:**
+
+1. **Disabled State — Session "Đang cập nhật":** Các buổi chưa có video chuyển sang nền navy tối + chữ xám nhạt (thay vì vàng + opacity thấp), giúp tôn lên buổi đang hoạt động.
+2. **Empty State — Khu vực Video chờ:** Bỏ nút Play lớn, thay bằng icon sách + dòng chữ hướng dẫn *"Hãy chọn một bài học từ danh sách bên phải"* chính giữa nền đen.
+3. **Toggle Switch — Tự động chuyển bài:** Đổi từ nút bấm to sang công tắc (toggle switch) nhỏ gọn, giảm phân tán thị giác khỏi khu vực phát video.

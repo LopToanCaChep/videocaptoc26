@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -188,18 +188,21 @@
       transform: rotate(-90deg);
     }
     .session.empty {
-      opacity: 0.3;
-      transition: opacity 0.3s ease;
-    }
-    .session.empty:hover {
       opacity: 1;
+      transition: all 0.3s ease;
     }
-    .session.empty {
-      opacity: 0.3; /* Má» Ä‘i khi trá»‘ng */
-      transition: opacity 0.3s ease;
+    .session.empty .session-title {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .session.empty:hover {
-      opacity: 1;
+    .session.empty .session-title:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .session.empty .session-items .vitem {
+      opacity: 0.35;
     }
 
     .vitem {
@@ -211,7 +214,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 0.75rem;
       margin-bottom: 0.75rem;
-      margin-right: 0.5rem; /* Thu gá»n láº¡i Ä‘á»ƒ khÃ´ng máº¥t viá»n pháº£i */
+      margin-right: 0.5rem; /* Thu gọn lại để không mất viền phải */
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
@@ -245,11 +248,11 @@
       background-color: rgba(0, 8, 36, 0.5);
       opacity: 0.8;
       border-style: solid;
-      border-color: #00f2fe; /* nÃ©t liá»n xanh dÆ°Æ¡ng neon */
+      border-color: #00f2fe; /* nét liền xanh dương neon */
     }
 
     .vitem.watched .vitem-title {
-      color: rgba(255,255,255,0.7); /* Bá» gáº¡ch ngang */
+      color: rgba(255,255,255,0.7); /* Bỏ gạch ngang */
     }
 
     .vitem.watched .status-indicator {
@@ -258,7 +261,7 @@
     }
     
     .vitem.watched .status-indicator::after {
-      content: "âœ“";
+      content: "✓";
       color: #000824;
       font-weight: bold;
       font-size: 0.8rem;
@@ -284,7 +287,7 @@
     }
     
     .vitem.playing .status-indicator::after {
-      content: "â–¶";
+      content: "▶";
       color: #000824;
       font-size: 0.7rem;
       margin-left: 2px;
@@ -305,6 +308,77 @@
       width: 100%;
       aspect-ratio: 16/9;
     }
+
+    /* Empty State for Video Placeholder */
+    .empty-state-icon {
+      width: 80px;
+      height: 80px;
+      opacity: 0.25;
+      margin-bottom: 1.5rem;
+    }
+    .empty-state-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+    .empty-state-sub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.25);
+      margin-top: 0.5rem;
+    }
+
+    /* Toggle Switch */
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.03em;
+      transition: color 0.3s ease;
+    }
+    .toggle-wrap.active .toggle-label {
+      color: #a8ff78;
+    }
+    .toggle-track {
+      width: 44px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      position: relative;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+    .toggle-track::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    .toggle-wrap.active .toggle-track {
+      background: rgba(168, 255, 120, 0.3);
+    }
+    .toggle-wrap.active .toggle-track::after {
+      left: 23px;
+      background: #a8ff78;
+      box-shadow: 0 0 8px rgba(168, 255, 120, 0.5);
+    }
   </style>
 </head>
 <body class="font-body min-h-screen flex flex-col">
@@ -314,7 +388,7 @@
       <div class="w-12 h-12 rounded-full flex items-center justify-center font-heading font-black text-xl text-white shadow-[0_0_15px_rgba(255,8,68,0.5)]" style="background-color: #0040be;">
         <img src="./logo_captoc_96x96.png" alt="Logo" class="w-full h-full object-contain p-1">
       </div>
-      <h1 class="font-heading font-black text-2xl hidden md:block tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-accentcyan to-accentpurple">Cáº¤P Tá»C 26</h1>
+      <h1 class="font-heading font-black text-2xl hidden md:block tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-accentcyan to-accentpurple">CẤP TỐC 26</h1>
     </div>
     <div class="flex gap-4">
       <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 font-heading font-bold text-sm shadow-lg flex items-center gap-2">
@@ -334,14 +408,16 @@
         <!-- Video Player Container -->
         <div class="toy-card w-full aspect-video bg-black relative flex items-center justify-center group shadow-[0_0_30px_rgba(0,64,190,0.3)] hidden lg:flex" id="video-container">
           <!-- Placeholder Video Area -->
-          <div id="vid-placeholder" class="w-full h-full flex flex-col items-center justify-center absolute inset-0 z-10">
-            <img alt="Video Player" class="w-full h-full object-cover opacity-70 mix-blend-screen absolute inset-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqPRBh0iFPCIbrGUuRZnUIFAOXNkVseqIg4w-CNP4rbViI6PI-4Wol70YJcbsiXzXgDL6WoiP06EEwbvhWKh-KmEi_Im59Trcxfov4Zboei3zpjFdcTZ17kLuY2HO5HRO1AEXeWbhjSFWkr_bbSIKhvvBxLbPpEywFnpTXc8Z4jAJ7SO7iBGHbcaJBtuHKfPIggt-DKhiGMdN4qyJRwP7WhCyg5-mkxW9FdVFrJD5g7GZ4Hm2GisYym21XtPur3gHJ3fKOokqIoDL">
-            <button class="absolute m-auto w-20 h-20 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,8,68,0.6)] transition-transform z-20 pointer-events-none" style="background-color: rgb(247, 200, 0); box-shadow: rgba(247, 200, 0, 0.6) 0px 0px 20px;">
-              <svg class="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="absolute bottom-4 text-white font-heading font-bold text-sm backdrop-blur-md bg-spacepanel/80 px-4 py-2 rounded-full z-20 border border-white/20">
-              Chá»n video tá»« danh sÃ¡ch Ä‘á»ƒ học
-            </div>
+          <div id="vid-placeholder" class="w-full h-full flex flex-col items-center justify-center absolute inset-0 z-10" style="background: radial-gradient(ellipse at center, rgba(0,64,190,0.15) 0%, transparent 70%);">
+            <!-- Book/folder icon as empty state illustration -->
+            <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              <path d="M8 7h8"></path>
+              <path d="M8 11h6"></path>
+            </svg>
+            <div class="empty-state-text">Hãy chọn một bài học<br>từ danh sách bên phải</div>
+            <div class="empty-state-sub">▶ Click vào bài học để bắt đầu</div>
           </div>
           <div id="yt-player" class="absolute inset-0 z-20" style="display:none"></div>
         </div>
@@ -350,13 +426,15 @@
         <div class="toy-card p-6 md:p-8 flex flex-col gap-4 hidden lg:flex" id="video-info-card" style="border: none; box-shadow: none;">
           <div class="flex justify-between items-start flex-wrap gap-4">
             <div>
-              <span class="inline-block bg-accentpurple/20 text-accentcyan font-heading font-bold px-3 py-1 rounded-full border border-accentpurple mb-3 text-xs tracking-wider uppercase" id="np-session">CHÆ¯A CHá»ŒN BÃ€I</span>
-              <h2 class="font-heading font-black text-3xl md:text-4xl text-white" id="np-title">Chá»n video tá»« danh sÃ¡ch â†’</h2>
+              <span class="inline-block bg-accentpurple/20 text-accentcyan font-heading font-bold px-3 py-1 rounded-full border border-accentpurple mb-3 text-xs tracking-wider uppercase" id="np-session">CHƯA CHỌN BÀI</span>
+              <h2 class="font-heading font-black text-3xl md:text-4xl text-white" id="np-title">Chọn video từ danh sách →</h2>
             </div>
-            <button class="toy-button px-8 py-3 text-sm md:text-base flex items-center gap-2" onclick="toggleAutoNext()" id="btn-autonext">Tá»± Ä‘á»™ng chuyá»ƒn bÃ i<br><span class="text-lg">â–¶</span>
-            </button>
+            <div class="toggle-wrap" id="btn-autonext" onclick="toggleAutoNext()">
+              <span class="toggle-label">Tự động chuyển bài</span>
+              <div class="toggle-track"></div>
+            </div>
           </div>
-          <p class="font-body text-base font-normal leading-relaxed text-gray-300 mt-2" id="np-desc">HÃ£y chá»n má»™t bÃ i học tá»« danh sÃ¡ch bÃªn pháº£i Ä‘á»ƒ báº¯t Ä‘áº§u.</p>
+          <p class="font-body text-base font-normal leading-relaxed text-gray-300 mt-2" id="np-desc">Hãy chọn một bài học từ danh sách bên phải để bắt đầu.</p>
         </div>
       </div>
     </section>
@@ -367,7 +445,7 @@
       <div class="toy-card flex-grow flex flex-col lg:max-h-[calc(100vh-8rem)] min-h-[500px]">
         <!-- Playlist Header -->
         <div class="p-6 border-b border-white/10 bg-spacepanel flex items-center justify-between z-10">
-          <h3 class="font-heading font-black text-xl text-white">Danh SÃ¡ch Video</h3>
+          <h3 class="font-heading font-black text-xl text-white">Danh Sách Video</h3>
           <span class="bg-accentcyan/20 text-accentcyan font-heading font-bold px-4 py-1 rounded-full text-sm border border-accentcyan/30" id="ts-video-count">... Videos</span>
         </div>
         <!-- Scrollable Sessions Container -->
@@ -382,10 +460,10 @@
   <!-- END: Main Content Layout -->
 
 <script>
-  // â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── DATA ──────────────────────────────────────────────────────────────────────
   const SESSIONS = %INJECT_DATA%;
 
-  // â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── STATE ─────────────────────────────────────────────────────────────────────
   let watched    = JSON.parse(localStorage.getItem('tc-ct-watched') || '{}');
   let autoNext   = false;
   let activeItem = null;
@@ -394,7 +472,7 @@
   let ytPlayer, ytReady = false;
   const playQueue = [];
 
-  // â”€â”€ YOUTUBE API â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── YOUTUBE API ───────────────────────────────────────────────────────────────
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('yt-player', {
       height:'100%', width:'100%',
@@ -418,7 +496,7 @@
     return 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1&autoplay=1';
   }
 
-  // â”€â”€ PLAY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── PLAY ──────────────────────────────────────────────────────────────────────
   function playVideo(id, name, sessionLabel, desc, el) {
     closeInline(false);
     if (activeItem) activeItem.classList.remove('playing');
@@ -467,7 +545,7 @@
     }
   }
 
-  // â”€â”€ PROGRESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── PROGRESS ──────────────────────────────────────────────────────────────────
   function markWatched(id, el) {
     if (!id || watched[id]) return;
     watched[id] = true;
@@ -496,17 +574,15 @@
 
   function toggleAutoNext() {
     autoNext = !autoNext;
-    const btn = document.getElementById('btn-autonext');
+    const wrap = document.getElementById('btn-autonext');
     if (autoNext) {
-        btn.style.background = 'linear-gradient(135deg, #a8ff78, #00f2fe)';
-        btn.innerHTML = 'Tá»± Ä‘á»™ng: Báº¬T <span class="text-lg">âœ“</span>';
+        wrap.classList.add('active');
     } else {
-        btn.style.background = 'linear-gradient(135deg, #00f2fe, #4facfe)';
-        btn.innerHTML = 'Tá»± Ä‘á»™ng: Táº®T <span class="text-lg">â–¶</span>';
+        wrap.classList.remove('active');
     }
   }
 
-  // â”€â”€ BUILD SESSIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── BUILD SESSIONS ────────────────────────────────────────────────────────────
   function toggleSession(titleEl) {
     const sessionEl = titleEl.closest('.session');
     sessionEl.classList.toggle('closed');
@@ -519,7 +595,7 @@
 
     SESSIONS.forEach((s, si) => {
       const hasVideos = s.videos.length > 0;
-      const sessionLabel = s.title ? `Buổi ${s.num} - ${s.title}` : `Buổi ${s.num} - Äang cáº­p nháº­t`;
+      const sessionLabel = s.title ? `Buổi ${s.num} - ${s.title}` : `Buổi ${s.num} - Đang cập nhật`;
       const icon = hasVideos ? "🚀" : "👽";
       
       let vitems = '';
