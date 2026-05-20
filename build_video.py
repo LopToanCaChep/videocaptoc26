@@ -26,30 +26,30 @@ def main():
             if row['Trang_Thai'] != 'Hien':
                 continue
                 
-            buoi_num = row['Buoi'].zfill(2)
-            if buoi_num not in sessions_dict:
-                sessions_dict[buoi_num] = {
-                    "num": buoi_num,
-                    "title": row['Ten_Buoi'],
+            de_num = row['De'].zfill(2)
+            if de_num not in sessions_dict:
+                sessions_dict[de_num] = {
+                    "num": de_num,
+                    "title": row['Ten_De'],
                     "videos": []
                 }
                 
             if row['ID_Youtube']:
-                sessions_dict[buoi_num]["videos"].append({
+                sessions_dict[de_num]["videos"].append({
                     "name": row['Ten_Phan'],
                     "id": row['ID_Youtube'],
                     "desc": row.get('Mo_Ta', '')
                 })
 
-    # Chuyển thành danh sách và đảm bảo đủ 15 buổi
+    # Chuyển thành danh sách và đảm bảo đủ 15 đề
     final_sessions = []
     for i in range(1, 16):
-        b_num = str(i).zfill(2)
-        if b_num in sessions_dict:
-            final_sessions.append(sessions_dict[b_num])
+        d_num = str(i).zfill(2)
+        if d_num in sessions_dict:
+            final_sessions.append(sessions_dict[d_num])
         else:
             final_sessions.append({
-                "num": b_num,
+                "num": d_num,
                 "title": "",
                 "videos": []
             })

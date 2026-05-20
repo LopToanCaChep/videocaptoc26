@@ -595,12 +595,12 @@
 
     SESSIONS.forEach((s, si) => {
       const hasVideos = s.videos.length > 0;
-      const sessionLabel = s.title ? `Buổi ${s.num} - ${s.title}` : `Buổi ${s.num} - Đang cập nhật`;
+      const sessionLabel = s.title ? `Đề ${s.num} - ${s.title}` : `Đề ${s.num} - Đang cập nhật`;
       const icon = hasVideos ? "🚀" : "👽";
       
       let vitems = '';
       s.videos.forEach((v, vi) => {
-        const sessionLabelFull = `Buổi ${s.num}${s.title ? ' - ' + s.title : ''}`;
+        const sessionLabelFull = `Đề ${s.num}${s.title ? ' - ' + s.title : ''}`;
         playQueue.push({ id: v.id, name: v.name, session: sessionLabelFull, el: null, desc: v.desc });
         totalV++;
         
