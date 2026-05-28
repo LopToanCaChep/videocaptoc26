@@ -41,9 +41,11 @@ def main():
                     "desc": row.get('Mo_Ta', '')
                 })
 
-    # Chuyển thành danh sách và đảm bảo đủ 15 đề
+    # Chuyển thành danh sách và ẩn hết các đề chẵn (chỉ giữ lại các đề lẻ từ 1 đến 15)
     final_sessions = []
     for i in range(1, 16):
+        if i % 2 == 0:  # Bỏ qua và ẩn toàn bộ đề chẵn
+            continue
         d_num = str(i).zfill(2)
         if d_num in sessions_dict:
             final_sessions.append(sessions_dict[d_num])
